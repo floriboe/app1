@@ -4,6 +4,7 @@ library(bslib)
 library(thematic)
 library(tidyverse)
 library(gitlink)
+library(auth0)
 
 # Read data from a CSV file and perform data preprocessing
 expansions <- read_csv("data/expansions.csv") |>
@@ -189,4 +190,5 @@ server <- function(input, output) {
 }
 
 # Create the Shiny app
-shinyApp(ui = ui, server = server)
+auth0::shinyAppAuth0(ui = ui, server = server)
+#shinyApp(ui = ui, server = server)
